@@ -34,7 +34,7 @@ const colors = ['green', 'black', 'grey', 'red'];
 
 //recycle place interval
 let recycleInterval = 1500;
-let speedUp = 1;
+let speedUp = 10;
 
 let basket = {
     x : basketX,
@@ -54,7 +54,7 @@ window.onload = function() {
     context.fillStyle = colors[2];
     context.fillRect(basket.x, basket.y, basket.width, basket.height);
     requestAnimationFrame(update);
-    setInterval(placeRecycling, recycleInterval);
+    IntervalID = setInterval(placeRecycling, recycleInterval);
     document.addEventListener("keydown", moveBasket);
     document.addEventListener("keyup", stopBasket);
 }
@@ -107,9 +107,10 @@ function update(){
     context.fillText(score, 5, 45);
 
     if(score > speedUp){
-        recycleInterval += -1300;
+        clearInterval(IntervalID);
+        recycleInterval += -50;
         speedUp += 10;
-        setInterval(placeRecycling, recycleInterval);
+        IntervalID = setInterval(placeRecycling, recycleInterval);
     }
 
     if(score > 100){
@@ -159,6 +160,7 @@ function moveBasket(e){
         score = 0;
         recyclingArray = [];
         speedUp = 10;
+        recycleInterval = 1500;
         gameOver = false;
         }
     }
