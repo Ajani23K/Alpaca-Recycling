@@ -1,9 +1,104 @@
 body {
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    margin: 0;
+    background: #f7f7f7;
     text-align: center;
 }
 
+.main-header {
+    background: #0a4a7a;
+    color: #fff;
+    padding: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.logo-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 2rem;
+}
+.logo {
+    height: 48px;
+}
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+.navbar a:hover {
+    color: #ffd600;
+}
+
+.hero {
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    color: #fff;
+    padding: 4rem 1rem 3rem 1rem;
+    position: relative;
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10,74,122,0.55);
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+.highlight {
+    color: #00e0ff;
+    font-style: italic;
+    font-weight: 700;
+}
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+.cta-btn {
+    background: #00e0ff;
+    color: #0a4a7a;
+    padding: 0.75rem 2rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s, color 0.2s;
+}
+.cta-btn:hover {
+    background: #ffd600;
+    color: #0a4a7a;
+}
+
+.game-section {
+    margin: 2rem auto 3rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 #board {
     background-color: skyblue;
-
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    margin-top: 1rem;
+    display: block;
 }

@@ -18,11 +18,14 @@ let recyclingHeight = 30;
 let recyclingX = 30;
 let recyclingY = 0;
 
+<<<<<<< HEAD
 //type of recycling
 let plastic = 1;
 let metal = 2;
 let paper = 3;
 
+=======
+>>>>>>> 43c78f02f9dd29144fcb60246d7fc4b30ac01862
 //lives
 let lives = 3;
 
@@ -130,8 +133,11 @@ function update(){
     context.fillStyle = colors[3];
     context.font = "30px sans-serif";
     context.fillText("Lives: " + lives, 5, 80);
+<<<<<<< HEAD
 
     //if recycle plastic, metal, or paper
+=======
+>>>>>>> 43c78f02f9dd29144fcb60246d7fc4b30ac01862
 
     if(score > speedUp){
         clearInterval(IntervalID);
@@ -145,6 +151,7 @@ function update(){
     }
 
     if(gameOver){
+<<<<<<< HEAD
     
     // tint
     context.fillStyle = 'rgba(0, 0, 0, 0.7)';
@@ -166,6 +173,10 @@ function update(){
     
 }
     
+=======
+        context.fillText("GAME OVER", boardWidth/8, boardHeight/2.2);
+    }
+>>>>>>> 43c78f02f9dd29144fcb60246d7fc4b30ac01862
 }
 
 function placeRecycling(){
