@@ -2,9 +2,20 @@ const input = document.getElementById("input");
 const sortedcontainer = document.getElementById("sorted_container");
 
 function classifyItem(item) {
-    const plastic = ["bottle", "container", "plastic bag", "jug","plastic"];
-    const metal = ["can", "foil", "tin", "aluminum","metal"];
-    const paper = ["newspaper", "magazine", "cardboard", "paper","box","carton"];
+    const plastic = [
+  "bottle", "container", "plastic bag", "jug", "plastic",
+  "tupperware", "clamshell", "wrapper", "packaging", "film",
+  "polyethylene", "shrink wrap", "ziplock",
+  "grocery bag", "saran wrap", "six-pack ring", "plastic lid"];;
+
+    const metal = ["can", "foil", "tin", "aluminum", "metal", 
+    "aerosol can", "steel", "bottle cap", "soda can", "food can",
+    "metal lid", "scrap metal", "copper wire", "brass", "chrome"];
+
+    const paper = [ "newspaper", "magazine", "cardboard", "paper", "box", "carton",
+  "envelope", "flyer", "paper bag", "junk mail", "notebook",
+  "post-it", "copy paper", "printer paper", "tissue box", "folder",
+  "paperboard", "cereal box", "wrapping paper", "toilet paper roll"];
     
     const lowerItem = item.toLowerCase();
 
