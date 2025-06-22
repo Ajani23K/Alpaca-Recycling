@@ -18,6 +18,11 @@ let recyclingHeight = 30;
 let recyclingX = 30;
 let recyclingY = 0;
 
+//type of recycling
+let plastic = 1;
+let metal = 2;
+let paper = 3;
+
 //lives
 let lives = 3;
 
@@ -116,6 +121,7 @@ function update(){
     }
     
     //score 
+    context.textAlign = 'start';
     context.fillStyle = colors[1];
     context.font = "45px sans-serif";
     context.fillText(score, 5, 45);
@@ -124,6 +130,8 @@ function update(){
     context.fillStyle = colors[3];
     context.font = "30px sans-serif";
     context.fillText("Lives: " + lives, 5, 80);
+
+    //if recycle plastic, metal, or paper
 
     if(score > speedUp){
         clearInterval(IntervalID);
@@ -137,8 +145,27 @@ function update(){
     }
 
     if(gameOver){
-        context.fillText("GAME OVER", boardWidth/8, boardHeight/2.2);
-    }
+    
+    // tint
+    context.fillStyle = 'rgba(0, 0, 0, 0.7)';
+    context.fillRect(0, 0, boardWidth, boardHeight);
+
+    // Gameover message
+    context.fillStyle = 'white';
+    context.font = "40px sans-serif";
+    context.textAlign = 'center';
+    context.fillText("GAME OVER", boardWidth / 2, boardHeight / 2 - 20);
+
+    // Final Score
+    context.font = "30px sans-serif";
+    context.fillText("Score: " + score, boardWidth / 2, boardHeight / 2 + 30);
+
+    // Restart
+    context.font = "20px sans-serif";
+    context.fillText("Press SPACE to restart", boardWidth / 2, boardHeight / 2 + 70);
+    
+}
+    
 }
 
 function placeRecycling(){
