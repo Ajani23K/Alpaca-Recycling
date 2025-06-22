@@ -3,11 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <meta name ="viewport", content="width=device-width, initial-scale=1.0">
-        <title>Recycle</title>
+        <title>Recycle Game</title>
         <link rel="stylesheet" href="recycle.css">
         <script src="recycle.js"></script>
     </head>
     <body>
-        <canvas id="board"></canvas>
+        <header class="main-header">
+            <div class="logo-nav">
+                <img src="https://www.republicservices.com/themes/custom/republic/logo.svg" alt="Republic Services Logo" class="logo">
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="#">Recycling Basics</a></li>
+                        <li><a href="#">Expert Tips</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">For Educators</a></li>
+                        <li><a href="#">At-Home Learning</a></li>
+                        <li><a href="#">Holidays</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Recycling <span class="highlight">Simplified</span></h1>
+                <p>Quick and easy ways to make a difference in our communities. Play the game below to become a better recycler!</p>
+                <a href="#game" class="cta-btn">Play Now</a>
+            </div>
+        </section>
+        <main id="game" class="game-section">
+            <canvas id="board"></canvas>
+        </main>
     </body>
 </html>
