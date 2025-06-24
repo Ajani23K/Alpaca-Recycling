@@ -102,3 +102,105 @@ body {
     margin-top: 1rem;
     display: block;
 }
+
+.info-section {
+    background: #fff;
+    padding: 4rem 2rem;
+    text-align: left;
+}
+
+.info-container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.info-container h2 {
+    text-align: center;
+    font-size: 2.25rem;
+    color: #333;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    flex-basis: 33%;
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.step:hover {
+    background-color: #f0f4f8;
+}
+
+.step-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #007bff;
+    margin-right: 1.5rem;
+    line-height: 1;
+}
+
+.step-content h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.step-content p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.materials-section {
+    margin-top: 3rem;
+}
+
+.material-item {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.material-item:last-child {
+    margin-bottom: 0;
+}
+
+.material-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.material-item img {
+    width: 40%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.material-text {
+    flex: 1;
+}
+
+.material-text h4 {
+    font-size: 1.4rem;
+    color: #0a4a7a;
+    margin-bottom: 0.5rem;
+}
+
+.material-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
