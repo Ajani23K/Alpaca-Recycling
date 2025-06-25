@@ -96,7 +96,8 @@ body {
     align-items: center;
 }
 #board {
-    background-color: skyblue;
+    background-image: url('images/background-03.jpg');
+    background-size: cover;
     border-radius: 18px;
     box-shadow: 0 4px 24px rgba(0,0,0,0.10);
     margin-top: 1rem;

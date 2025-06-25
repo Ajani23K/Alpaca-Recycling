@@ -40,13 +40,25 @@ let gameOver = false;
 
 //colors
 const colors = ['green', 'black', 'grey', 'red'];
-const Rcolors = [ 'blue', 'grey' , 'white'];
+const Rcolors = [ 'blue', 'grey' , 'green'];
 
 
 //recycle place interval
 let recycleInterval = 1500;
 let speedUp = 10;
 let gravityUp = 20;
+
+//images
+let plBasketImg = new Image();
+plBasketImg.src = "images/Blue_Bin.png";
+let mBasketImg = new Image();
+mBasketImg.src = "images/Grey_Bin.png";
+let pBasketImg = new Image();
+pBasketImg.src = "images/Green_Bin.png";
+let backgroundImg = new Image();
+backgroundImg.src = "images/background-03.png";
+
+let basketArray = [plBasketImg, mBasketImg, pBasketImg];
 
 let basket = {
     x : basketX,
@@ -71,7 +83,7 @@ window.onload = function() {
 
     //draw basket
     context.fillStyle = colors[2];
-    context.fillRect(basket.x, basket.y, basket.width, basket.height);
+    context.drawImage(plBasketImg, basket.x, basket.y, basket.width, basket.height);
     requestAnimationFrame(update);
     IntervalID = setInterval(placeRecycling, recycleInterval);
     document.addEventListener("keydown", moveBasket);
@@ -84,6 +96,7 @@ function update(){
         return;
     }
     context.clearRect(0, 0, board.width, board.height);
+    
 
     //basket
     basket.x += basketMove;
@@ -94,7 +107,7 @@ function update(){
         basket.x = boardWidth - basketWidth;
     }
     context.fillStyle = Rcolors[randomizedrecyclabletype-1];
-    context.fillRect(basket.x, basket.y, basket.width, basket.height);
+    context.drawImage(basketArray[randomizedrecyclabletype-1], basket.x, basket.y, basket.width, basket.height);
 
     //recycling
     for(let i = 0; i < recyclingArray.length; i++){
@@ -213,7 +226,7 @@ function placeRecycling(){
             Rcolor = 'grey';
         }
         else{
-            Rcolor ='white';
+            Rcolor ='green';
         }
 
         recycling = {
