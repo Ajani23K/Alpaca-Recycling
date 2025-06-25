@@ -13,8 +13,8 @@ let basketMove = 0;
 
 //recycling
 let recyclingArray = []
-let recyclingWidth = 30;
-let recyclingHeight = 30;
+let recyclingWidth = 40;
+let recyclingHeight = 40;
 let recyclingX = 30;
 let recyclingY = 0;
 
@@ -49,16 +49,51 @@ let speedUp = 10;
 let gravityUp = 20;
 
 //images
+//baskets
 let plBasketImg = new Image();
 plBasketImg.src = "images/Blue_Bin.png";
 let mBasketImg = new Image();
 mBasketImg.src = "images/Grey_Bin.png";
 let pBasketImg = new Image();
 pBasketImg.src = "images/Green_Bin.png";
+//background
 let backgroundImg = new Image();
 backgroundImg.src = "images/background-03.png";
+//plastic items
+let plasticitem1 = new Image();
+plasticitem1.src = "images/plastic_cup.png"
+let plasticitem2 = new Image();
+plasticitem2.src = "images/shampoo_bottle.png"
+let plasticitem3 = new Image();
+plasticitem3.src = "images/yogurt_plastic.png"
+//metal items
+let metalitem1 = new Image();
+metalitem1.src = "images/coffe_metal_tin.png"
+let metalitem2 = new Image();
+metalitem2.src = "images/soda_can.png"
+let metalitem3 = new Image();
+metalitem3.src = "images/tomato_can.png"
+//paper items
+let paperitem1 = new Image();
+paperitem1.src = "images/carboardd_box.png";
+let paperitem2 = new Image();
+paperitem2.src = "images/envelope.png";
+let paperitem3  = new Image();
+paperitem3.src = "images/carboard_egg_carton.png";
+//trash
+let trash1 = new Image();
+trash1.src = "images/apple_core_garbage.png"
+let trash2 = new Image();
+trash2.src = "images/pizza_slice_garbage.png"
+let trash3 = new Image();
+trash3.src = "images/chips_garbage.png";
 
 let basketArray = [plBasketImg, mBasketImg, pBasketImg];
+let plasticArray = [plasticitem1,plasticitem2,plasticitem3];
+let metalArray = [metalitem1, metalitem2, metalitem3];
+let paperArray = [paperitem1,paperitem2,paperitem3];
+
+let trashArray = [trash1, trash2, trash3];
 
 let basket = {
     x : basketX,
@@ -113,8 +148,7 @@ function update(){
     for(let i = 0; i < recyclingArray.length; i++){
         let recycle = recyclingArray[i];
         recycle.y += gravity;
-        context.fillStyle = recycle.color;
-        context.fillRect(recycle.x, recycle.y, recycle.width, recycle.height);
+        context.drawImage(recycle.image, recycle.x, recycle.y, recycle.width, recycle.height);
 
         if(detectCollision(basket, recycle)){
             if(recycle.type === 'recyclable') {
@@ -144,18 +178,18 @@ function update(){
     //score 
     context.textAlign = 'start';
     context.fillStyle = colors[1];
-    context.font = "30px sans-serif";
+    context.font = "20px 'Press Start 2P', sans-serif";
     context.fillText(score, 5, 45);
 
     
     //lives
     context.fillStyle = colors[3];
-    context.font = "20px sans-serif";
+    context.font = "10px 'Press Start 2P', sans-serif";
     context.fillText("Lives : " + lives, 5, 80);
 
     //if recycle plastic, metal, or paper
     context.fillStyle = Rcolors[randomizedrecyclabletype-1];
-    context.font = "30px sans-serif";
+    context.font = "20px 'Press Start 2P', sans-serif";
     context.textAlign = "center"
     context.fillText(recytype[randomizedrecyclabletype - 1], boardWidth / 2, 40);
 
@@ -189,20 +223,20 @@ function update(){
 
     // Gameover message
     context.fillStyle = 'red';
-    context.font = "40px sans-serif";
+    context.font = "30px 'Press Start 2P', sans-serif";
     context.textAlign = 'center';
     context.fillText("GAME OVER", boardWidth / 2, boardHeight / 2 - 20);
 
-    context.font = "15px sans-serif";
+    context.font = "10px 'Press Start 2P', sans-serif";
     context.fillText("You failed to recycle!", boardWidth / 2, boardHeight / 2 );
     
     // Final Score
     context.fillStyle = 'white';
-    context.font = "30px sans-serif";
+    context.font = "20px 'Press Start 2P', sans-serif";
     context.fillText("Score : " + score, boardWidth / 2, boardHeight / 2 + 45);
 
     // Restart
-    context.font = "20px sans-serif";
+    context.font = "10px 'Press Start 2P', sans-serif";
     context.fillText("Press 'R' KEY to restart", boardWidth / 2, boardHeight / 2 + 80);
     
 }
@@ -220,13 +254,19 @@ function placeRecycling(){
      
     
       let Rcolor;
+      let ItemIMAGE;
+      let randomnum = Math.floor(Math.random() * 3) + 1;
         if(randomizedrecyclabletype === 1){
             Rcolor = 'blue';
+            
+            ItemIMAGE = plasticArray[randomnum-1];
         }else if(randomizedrecyclabletype === 2){
             Rcolor = 'grey';
+            ItemIMAGE = metalArray[randomnum-1];
         }
         else{
             Rcolor ='green';
+            ItemIMAGE = paperArray[randomnum-1];
         }
 
         recycling = {
@@ -236,10 +276,14 @@ function placeRecycling(){
         height: recyclingHeight,
         collected: false,
         type: randomType.type,
-        color: Rcolor
+        color: Rcolor,
+        image: ItemIMAGE
         };
     }      
     else{
+        let randomnum = Math.floor(Math.random() * 3) + 1;
+        let ItemIMAGE = trashArray[randomnum-1];
+
         recycling = {
         x: randomRecycleX,
         y: recyclingY,
@@ -247,7 +291,8 @@ function placeRecycling(){
         height: recyclingHeight,
         collected: false,
         type: randomType.type,
-        color: randomType.color
+        color: randomType.color,
+        image: ItemIMAGE
         };
 
         
