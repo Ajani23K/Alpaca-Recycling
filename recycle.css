@@ -348,7 +348,19 @@ ul li span:hover{
     font-weight: 500;
     font-size: 1rem;
     transition: color 0.2s;
-}
+    }
+    .hero{
+       display: flex;
+    }
+    .game{
+        display: flex;
+    }
+    .info-section{
+    }
+    .materials-section{
+    }
+    .container{
+    }
 
    
 
