@@ -357,6 +357,7 @@ ul li span:hover{
     }
     .step{
         display: flex;
+        width:calc(100%/3);
     }
     .info-section{
     }
