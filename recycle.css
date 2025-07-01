@@ -357,7 +357,8 @@ ul li span:hover{
     }
     .step{
         display: flex;
-        width:calc(100%/3);
+        flex-basis: 33%;
+        padding: 0;
     }
     .info-section{
     }
