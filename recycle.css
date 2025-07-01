@@ -355,6 +355,9 @@ ul li span:hover{
     .game{
         display: flex;
     }
+    .step{
+        display: flex;
+    }
     .info-section{
     }
     .materials-section{
