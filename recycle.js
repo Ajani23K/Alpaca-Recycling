@@ -116,7 +116,7 @@ const itemTypes = [
 
 const leftbtn = document.getElementById("leftbtn");
 const rightbtn = document.getElementById("rightbtn");
-
+const resetbtn = document.getElementById("restart");
 window.onload = function() {
     
     board = document.getElementById("board");
@@ -145,6 +145,10 @@ window.onload = function() {
         stopBasket({code:"ArrowRight"});
 
     });
+    resetbtn.addEventListener("mousedown",function(event){
+        moveBasket({code: "KeyR"});
+
+    });
 
     //mobile
     leftbtn.addEventListener("touchstart",function(event){
@@ -160,6 +164,10 @@ window.onload = function() {
     rightbtn.addEventListener("touchend",function(event){
         stopBasket({code:"ArrowRight"});
 
+    });
+
+    resetbtn.addEventListener("touchstart",function(event){
+        moveBasket({code:"KeyR"});
     });
 }
 
