@@ -371,7 +371,9 @@ html, body {
     justify-content: center;
     padding: 16px 50px;
     user-select: none;
-    
+    -webkit-user-select: none; 
+    -ms-user-select: none;
+    touch-action: manipulation;
     }
     
 }
