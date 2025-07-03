@@ -114,6 +114,9 @@ const itemTypes = [
     { type: 'non-recyclable', color: 'red' }
 ];
 
+const leftbtn = document.getElementById("leftbtn");
+const rightbtn = document.getElementById("rightbtn");
+
 window.onload = function() {
     
     board = document.getElementById("board");
@@ -128,6 +131,36 @@ window.onload = function() {
     IntervalID = setInterval(placeRecycling, recycleInterval);
     document.addEventListener("keydown", moveBasket);
     document.addEventListener("keyup", stopBasket);
+    leftbtn.addEventListener("mousedown",function(event){
+        moveBasket({code:"ArrowLeft"});
+    });
+    leftbtn.addEventListener("mouseup",function(event){
+        stopBasket({code:"ArrowLeft"});
+
+    });
+    rightbtn.addEventListener("mousedown",function(event){
+        moveBasket({code:"ArrowRight"});
+    });
+    rightbtn.addEventListener("mouseup",function(event){
+        stopBasket({code:"ArrowRight"});
+
+    });
+
+    //mobile
+    leftbtn.addEventListener("touchstart",function(event){
+        moveBasket({code:"ArrowLeft"});
+    });
+    leftbtn.addEventListener("touchend",function(event){
+        stopBasket({code:"ArrowLeft"});
+
+    });
+    rightbtn.addEventListener("touchstart",function(event){
+        moveBasket({code:"ArrowRight"});
+    });
+    rightbtn.addEventListener("touchend",function(event){
+        stopBasket({code:"ArrowRight"});
+
+    });
 }
 
 function update(){
@@ -362,6 +395,7 @@ function detectCollision(a, b){
 
 const input = document.getElementById("input");
 const sortedcontainer = document.getElementById("sorted_container");
+
 
 function classifyItem(item) {
     const plastic = [
