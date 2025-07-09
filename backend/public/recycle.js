@@ -434,24 +434,38 @@ function classifyItem(item) {
     }
 }
 
-function addItem(){
-    if(input.value.trim() === ''){
-        alert("Please add an item for recycling");
-    } else {
-        const itemName = input.value.trim();
-        const category = classifyItem(itemName);
-        
-        let li = document.createElement("li");
-        li.innerHTML = `${itemName} <em class="category-label">(${category})</em>`;
-        sortedcontainer.appendChild(li);
-        
-        let span = document.createElement("span");
-        span.innerHTML = "\u00d7";
-        li.appendChild(span);
-    }
+function addItem() {
+  if (input.value.trim() === '') {
+    alert("Please add an item for recycling");
+  } else {
+    const itemName = input.value.trim();
+    const category = classifyItem(itemName);
 
-    input.value = "";
+    let li = document.createElement("li");
+    li.innerHTML = `${itemName} <em class="category-label">(${category})</em>`;
+    sortedcontainer.appendChild(li);
+
+    let span = document.createElement("span");
+    span.innerHTML = "\u00d7";
+    li.appendChild(span);
+
+    fetch('http://localhost:3000/submit-item', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ item: itemName, category: category })
+    })
+    .then(response => response.text())
+    .then(data => {
+      console.log('Server says:', data);
+    })
+    .catch(err => {
+      console.error('Error sending item:', err);
+    });
+  }
+
+  input.value = "";
 }
+
 
 sortedcontainer.addEventListener("click", function(e){
     if(e.target.tagName === "LI"){
@@ -461,3 +475,5 @@ sortedcontainer.addEventListener("click", function(e){
         e.target.parentElement.remove();
     }
 }, false);
+
+
