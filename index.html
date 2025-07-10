@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Recycle Game</title>
+    <link rel="stylesheet" href="recycle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <script src="recycle.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-nav">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#">Recycling Basics</a></li>
+                    <li><a href="#">Expert Tips</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">For Educators</a></li>
+                    <li><a href="#">At-Home Learning</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Recycling <span class="highlight">Simplified</span></h1>
+            <p>Quick and easy ways to make a difference in our communities. Play the game below to become a better recycler!</p>
+            <a href="#game" class="cta-btn">Play Now</a>
+        </div>
+    </section>
+
+    <main id="game" class="game-section">
+        <canvas id="board"></canvas>
+        <div class="mobilebuttons">
+        <div class="movementbtns">
+        <button id="leftbtn">Left</button>
+        <button id="rightbtn">Right</button>
+        </div>
+        <div class="resetbtn">
+        <button id="restart">Restart</button>
+        </div>
+</div>
+        </div>
+    </main>
+
+    <section class="info-section">
+        <div class="info-container">
+            <h2>Recycling: Simple as 1-2-3</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Know what to throw</h3>
+                        <p>Cardboard, paper, metal cans, plastic bottles and jugs.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Empty, Clean, Dry</h3>
+                        <p>Keep all recyclables free of food and liquid.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Don't bag it</h3>
+                        <p>Never put recyclables in containers or bags.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="materials-section">
+                <div class="material-item">
+                    <img src="https://recyclingsimplified.com/wp-content/uploads/2018/08/rules-loose-recyclables.png" alt="Recyclable materials: cardboard, plastic bottle, and can">
+                    <div class="material-text">
+                        <h4>Paper & Cardboard</h4>
+                        <p>Flattened cardboard, newspapers, magazines, office paper and common mail.</p>
+                        <h4>Metal Cans</h4>
+                        <p>Beverage and food cans.</p>
+                        <h4>Plastic Bottles & Jugs</h4>
+                        <p>Food and liquid containers with the lids on.</p>
+                    </div>
+                </div>
+                <div class="material-item">
+                    <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?q=80&w=1740&auto=format&fit=crop" alt="Soiled plastic containers">
+                    <div class="material-text">
+                        <h4>No Soiled or Wet Materials</h4>
+                        <p>Just one dirty bottle or item can contaminate the contents of a whole recycling truck. Once cardboard or paper comes into contact with food or liquid, it can no longer be recycled.</p>
+                    </div>
+                </div>
+                <h5 class="find-out-more">Still Confused?</h3>
+                <h5 class="bottomt">Try out our automated recycling sorter!</h3>
+            </div>
+        </div>
+    </section>
+       <div class ="container">
+            <div class="recyclesort">
+                    <h2>Recycling Sorter</h2>
+                    <div class="row">
+                    <input type="text" id="input" placeholder="Add recycling items">
+                 <button onclick="addItem()">Add</button>
+                 </div>
+                    <ul id="sorted_container">
+                    <!-- <li class="checked"> Plastic</li>
+                    <li> Plastic</li>
+                    <li> Plastic</li> -->
+                    </ul>
+            </div>
+        </div>
+   
+</body>
+</html>
