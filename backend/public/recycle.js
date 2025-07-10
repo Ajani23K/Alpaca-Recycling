@@ -435,36 +435,49 @@ function classifyItem(item) {
 }
 
 function addItem() {
-  if (input.value.trim() === '') {
+  const itemName = input.value.trim();
+  if (itemName === '') {
     alert("Please add an item for recycling");
-  } else {
-    const itemName = input.value.trim();
-    const category = classifyItem(itemName);
+    return;
+  }
 
-    let li = document.createElement("li");
-    li.innerHTML = `${itemName} <em class="category-label">(${category})</em>`;
-    sortedcontainer.appendChild(li);
-
-    let span = document.createElement("span");
-    span.innerHTML = "\u00d7";
-    li.appendChild(span);
-
-    fetch('http://localhost:3000/submit-item', {
+  fetch('http://127.0.0.1:3000/submit-item', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ item: itemName, category: category })
-    })
-    .then(response => response.text())
-    .then(data => {
-      console.log('Server says:', data);
-    })
-    .catch(err => {
-      console.error('Error sending item:', err);
-    });
-  }
+    body: JSON.stringify({ item: itemName })
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("API response not OK");
+    }
+    return response.json();
+  })
+  .then(data => {
+    const category = data.category || 'Unknown';
+    renderItem(itemName, category);
+  })
+  .catch(err => {
+    console.warn('Hugging Face API failed, falling back to local logic:', err);
+
+    
+    const fallbackCategory = classifyItem(itemName);
+    renderItem(itemName, fallbackCategory);
+  });
 
   input.value = "";
 }
+
+function renderItem(name, category) {
+  const li = document.createElement("li");
+  li.innerHTML = `${name} <em class="category-label">(${category})</em>`;
+  sortedcontainer.appendChild(li);
+
+  const span = document.createElement("span");
+  span.innerHTML = "\u00d7";
+  li.appendChild(span);
+}
+
+
 
 
 sortedcontainer.addEventListener("click", function(e){
