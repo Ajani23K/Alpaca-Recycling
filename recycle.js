@@ -420,6 +420,8 @@ function classifyItem(item) {
   "envelope", "flyer", "paper bag", "junk mail", "notebook",
   "post-it", "copy paper", "printer paper", "tissue box", "folder",
   "paperboard", "cereal box", "wrapping paper", "toilet paper roll"];
+
+    const compost = ["applecore", "core", "food", "organic", "apple", "pear", "fruit", "vegetable", "corn", "sunflower", "flower"];
     
     const lowerItem = item.toLowerCase();
 
@@ -429,6 +431,8 @@ function classifyItem(item) {
         return "Metal";
     } else if (paper.some(p => lowerItem.includes(p))) {
         return "Paper";
+    } else if(compost.some(c => lowerItem.includes(c))){
+        return "Compost";
     } else {
         return "Trash";
     }

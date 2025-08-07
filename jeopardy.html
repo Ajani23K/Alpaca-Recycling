@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jeopardy</title>
+    <link rel="stylesheet" href="recycle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <script src="jeopardy.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-nav">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Recycling Basics</a></li>
+                    <li><a href="jeopardy.html">Jeopardy</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div>
+      <div class="scoreboard">
+        <span id="wordScore">Score: </span>
+        <span id="score">0</span>
+      </div>
+    </div>
+    <main class="jeopardy-board">
+    <!-- Topics -->
+    <div class="category">Recycling</div>
+    <div class="category">Enviornment</div>
+    <div class="category">History</div>
+
+    
+    <!-- Row 1 -->
+    <button class="clue" data-value="100">$100</button>
+    <button class="clue" data-value="100">$100</button>
+    <button class="clue" data-value="100">$100</button>
+    
+
+    <!-- Row 2 -->
+    <button class="clue" data-value="200">$200</button>
+    <button class="clue" data-value="200">$200</button>
+    <button class="clue" data-value="200">$200</button>
+   
+
+    <!-- Row 3 -->
+    <button class="clue" data-value="300">$300</button>
+    <button class="clue" data-value="300">$300</button>
+    <button class="clue" data-value="300">$300</button>
+    
+
+    <!-- Row 4 -->
+    <button class="clue" data-value="400">$400</button>
+    <button class="clue" data-value="400">$400</button>
+    <button class="clue" data-value="400">$400</button>
+    
+    <div id="questionstate" class="state">
+  <div class="state-content">
+    <span class="closebtn">&times;</span>
+    <p id="questionText" class="question-label">Question goes here</p>
+
+    
+    <div id="answerbtns" class="grid-answers">
+      <!-- Answer buttons-->
+    </div>
+
+    <p id="feedback" style="margin-top: 20px; font-weight: bold;"></p>
+  </div>
+</div>
+
+</main>
+</body>
+</html>
+
+
+    
