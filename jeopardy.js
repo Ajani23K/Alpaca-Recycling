@@ -77,6 +77,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeButton = document.querySelector(".closebtn");
     const buttons = document.querySelectorAll(".clue");
     const scoreboard = document.getElementById("score");
+    const gameoverscreen = document.querySelector(".endscreen");
+    const restartbtn = document.querySelector(".restart");
+    const finalscore = document.getElementById("finalscore");
 
     const categories = ["Recycling", "Enviornment", "History"];
 
@@ -122,6 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     all.forEach(b => b.disabled = true);
                     scoreboard.textContent = score;
                     button.style.visibility = "hidden";
+                    
                 });
                 answerButtons.appendChild(btn);
             });
@@ -129,9 +133,30 @@ document.addEventListener("DOMContentLoaded", function () {
             state.style.display = "block";
         });
     });
+    function restartgame(){
+        score = 0;
+        scoreboard.textContent = score;
+        const buttons = document.querySelectorAll(".clue");
+        buttons.forEach(button => { button.style.visibility = "visible";});
+
+        gameoverscreen.style.visibility = "hidden";
+
+    }
+    function countVisibleButtons() {
+    const buttons = document.querySelectorAll(".clue");
+    const visibleCount = Array.from(buttons).filter(btn => btn.style.visibility !== "hidden").length;
+    console.log(`Visible clue buttons: ${visibleCount}`);
+    return visibleCount;
+    }
+
 
     closeButton.addEventListener("click", () => {
         state.style.display = "none";
+        if(countVisibleButtons()==0){
+                    finalscore.textContent = score;
+                    gameoverscreen.style.visibility = "visible";
+                    restartbtn.onclick = restartgame;
+        }
     });
 
     window.addEventListener("click", (event) => {

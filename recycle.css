@@ -118,11 +118,15 @@ body {
 .answer-btn:hover {
     background-color: #004a99;
 }
-#scoreboard{
+.scoreboard{
     margin: 20px 0 10px 0;
     justify-content: center;
     align-items: center;
+    color: black;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
 }
+
 #score{
     color: black;
     font-family: 'Press Start 2P', cursive;
@@ -132,6 +136,66 @@ body {
     color: black;
     font-family: 'Press Start 2P', cursive;
     font-size: 18px; 
+}
+.endscreen{
+    visibility: hidden;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+
+}
+.end{
+    background-color: #003366;
+    margin: 15% auto;
+    padding: 20px;
+    border: 4px solid black;
+    width: 60%;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    text-align: center;
+}
+.restart {
+    font-family: 'Press Start 2P', cursive;
+    padding: 12px;
+    color: gold;
+    background-color: #0066cc;
+    border: 2px solid #000;
+    cursor: pointer;
+    font-size: 12px;
+    word-wrap: break-word;
+}
+.score-label{
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    margin-bottom: 20px;
+
+}
+.finalscore{
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    margin-bottom: 20px;
+
+}
+.score-display {
+    margin-bottom: 30px; 
+}
+
+.restart-label{
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    margin-bottom: 20px;
+
+}
+.restart:hover {
+    background-color: #004a99;
 }
 .main-header {
     background: #0a4a7a;
